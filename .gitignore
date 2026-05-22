@@ -1,0 +1,12 @@
+# Streamlit secrets — never commit
+.streamlit/secrets.toml
+
+# Claude Code local config
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store

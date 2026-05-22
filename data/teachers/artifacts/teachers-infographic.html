@@ -1,0 +1,443 @@
+
+<h2 class="sr-only">Survey infographic: AI usage and integration in teaching, 73 teachers across Spain, Slovenia, Italy, and Turkey</h2>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap');
+
+  :root {
+    --color-background-primary: #0f1117;
+    --color-background-secondary: #1f222e;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #94a3b8;
+    --color-border-tertiary: #334155;
+    --font-sans: 'DM Sans', sans-serif;
+    --font-serif: 'DM Serif Display', serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  body {
+    background-color: var(--color-background-primary);
+    color: var(--color-text-primary);
+  }
+
+  .inf * { box-sizing: border-box; margin: 0; padding: 0; }
+  .inf { font-family: 'DM Sans', var(--font-sans); color: var(--color-text-primary); padding: 1.5rem; background-color: var(--color-background-primary); }
+  .inf-hero { background: #1D9E75; color: #fff; padding: 2rem 1.5rem 1.5rem; border-radius: var(--border-radius-lg); margin-bottom: 1.5rem; }
+  .inf-hero-title { font-family: 'DM Serif Display', var(--font-serif); font-size: 28px; font-weight: 400; line-height: 1.2; margin-bottom: 0.5rem; }
+  .inf-hero-sub { font-size: 14px; opacity: 0.85; margin-bottom: 1.25rem; }
+  .inf-hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .inf-hero-stat { background: rgba(255,255,255,0.15); border-radius: var(--border-radius-md); padding: 10px 12px; }
+  .inf-hero-stat-n { font-family: 'DM Serif Display', var(--font-serif); font-size: 26px; line-height: 1; }
+  .inf-hero-stat-l { font-size: 11px; opacity: 0.85; margin-top: 4px; line-height: 1.3; }
+  .inf-section { margin-bottom: 1.25rem; }
+  .inf-section-title { font-size: 11px; font-weight: 500; letter-spacing: 0.07em; color: var(--color-text-secondary); text-transform: uppercase; margin-bottom: 0.75rem; padding-bottom: 6px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .inf-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .inf-grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .inf-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.1rem; }
+  .inf-card-title { font-size: 12px; color: var(--color-text-secondary); font-weight: 500; margin-bottom: 0.75rem; }
+  .bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+  .bar-row:last-child { margin-bottom: 0; }
+  .bar-label { font-size: 12px; color: var(--color-text-secondary); min-width: 90px; max-width: 90px; line-height: 1.25; }
+  .bar-track { flex: 1; height: 10px; background: var(--color-background-secondary); border-radius: 99px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 99px; transition: width 0.6s ease; }
+  .bar-pct { font-size: 12px; font-weight: 500; min-width: 30px; text-align: right; }
+  .pill-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill { font-size: 11px; padding: 4px 9px; border-radius: 99px; font-weight: 500; }
+  .pill-teal { background: rgba(29, 158, 117, 0.15); color: #5DCAA5; }
+  .pill-coral { background: rgba(216, 90, 48, 0.15); color: #F0997B; }
+  .pill-blue { background: rgba(24, 95, 165, 0.15); color: #8DB5E1; }
+  .pill-amber { background: rgba(133, 79, 11, 0.15); color: #E5A952; }
+  .pill-gray { background: rgba(255, 255, 255, 0.1); color: #D3D1C7; }
+  .pill-purple { background: rgba(83, 74, 183, 0.15); color: #A098EE; }
+  .big-pct { font-family: 'DM Serif Display', var(--font-serif); font-size: 40px; line-height: 1; color: #1D9E75; }
+  .big-pct-sub { font-size: 13px; color: var(--color-text-secondary); margin-top: 4px; line-height: 1.35; }
+  .feel-bar { display: flex; flex-direction: column; gap: 5px; }
+  .feel-row { display: flex; align-items: center; gap: 6px; }
+  .feel-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .feel-name { font-size: 12px; color: var(--color-text-secondary); flex: 1; }
+  .feel-count { font-size: 12px; font-weight: 500; }
+  .concern-row { display: flex; align-items: center; gap: 7px; margin-bottom: 8px; }
+  .concern-row:last-child { margin-bottom: 0; }
+  .concern-label { font-size: 12px; color: var(--color-text-secondary); flex: 1; min-width: 0; line-height: 1.25; }
+  .concern-stack { display: flex; height: 10px; border-radius: 99px; overflow: hidden; flex: 0 0 120px; }
+  .concern-pct { font-size: 11px; font-weight: 500; min-width: 32px; text-align: right; }
+  .donut-wrap { position: relative; width: 100%; display: flex; justify-content: center; align-items: center; }
+  .expectation-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 10px; }
+  .expectation-item:last-child { margin-bottom: 0; }
+  .exp-icon { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+  .exp-text { font-size: 12px; color: var(--color-text-secondary); line-height: 1.35; flex: 1; }
+  .exp-agree { font-size: 13px; font-weight: 500; color: #1D9E75; }
+  .awareness-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .awareness-row:last-child { border-bottom: none; }
+  .aw-label { font-size: 12px; color: var(--color-text-secondary); }
+  .aw-pills { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
+  @media (max-width: 500px) {
+    .inf-hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .inf-grid2 { grid-template-columns: 1fr; }
+    .inf-grid3 { grid-template-columns: 1fr; }
+    .bar-label { min-width: 70px; max-width: 70px; }
+  }
+</style>
+
+<div class="inf">
+
+  <!-- Hero -->
+  <div class="inf-hero">
+    <div class="inf-hero-title">AI in the Classroom</div>
+    <div class="inf-hero-sub">Survey of 73 teachers — Spain, Slovenia, Italy &amp; Turkey &bull; April 2026</div>
+    <div class="inf-hero-stats">
+      <div class="inf-hero-stat">
+        <div class="inf-hero-stat-n">73</div>
+        <div class="inf-hero-stat-l">teachers surveyed</div>
+      </div>
+      <div class="inf-hero-stat">
+        <div class="inf-hero-stat-n">4</div>
+        <div class="inf-hero-stat-l">countries</div>
+      </div>
+      <div class="inf-hero-stat">
+        <div class="inf-hero-stat-n">82%</div>
+        <div class="inf-hero-stat-l">are women</div>
+      </div>
+      <div class="inf-hero-stat">
+        <div class="inf-hero-stat-n">87%</div>
+        <div class="inf-hero-stat-l">use AI at least weekly</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 1: Demographics + AI Knowledge -->
+  <div class="inf-section">
+    <div class="inf-section-title">Who they are</div>
+    <div class="inf-grid2">
+      <div class="inf-card">
+        <div class="inf-card-title">Age distribution</div>
+        <div class="bar-row"><div class="bar-label">Under 30</div><div class="bar-track"><div class="bar-fill" style="width:4%;background:#9FE1CB;"></div></div><div class="bar-pct" style="color:#1D9E75;">4%</div></div>
+        <div class="bar-row"><div class="bar-label">30–40</div><div class="bar-track"><div class="bar-fill" style="width:16%;background:#5DCAA5;"></div></div><div class="bar-pct" style="color:#1D9E75;">16%</div></div>
+        <div class="bar-row"><div class="bar-label">41–50</div><div class="bar-track"><div class="bar-fill" style="width:47%;background:#1D9E75;"></div></div><div class="bar-pct" style="color:#1D9E75;">47%</div></div>
+        <div class="bar-row"><div class="bar-label">51–60</div><div class="bar-track"><div class="bar-fill" style="width:23%;background:#0F6E56;"></div></div><div class="bar-pct" style="color:#1D9E75;">23%</div></div>
+        <div class="bar-row"><div class="bar-label">Over 60</div><div class="bar-track"><div class="bar-fill" style="width:10%;background:#085041;"></div></div><div class="bar-pct" style="color:#1D9E75;">10%</div></div>
+      </div>
+      <div class="inf-card">
+        <div class="inf-card-title">Teaching experience</div>
+        <div class="bar-row"><div class="bar-label">0–5 years</div><div class="bar-track"><div class="bar-fill" style="width:12%;background:#9FE1CB;"></div></div><div class="bar-pct" style="color:#1D9E75;">12%</div></div>
+        <div class="bar-row"><div class="bar-label">6–15 years</div><div class="bar-track"><div class="bar-fill" style="width:26%;background:#5DCAA5;"></div></div><div class="bar-pct" style="color:#1D9E75;">26%</div></div>
+        <div class="bar-row"><div class="bar-label">16–25 years</div><div class="bar-track"><div class="bar-fill" style="width:38%;background:#1D9E75;"></div></div><div class="bar-pct" style="color:#1D9E75;">38%</div></div>
+        <div class="bar-row"><div class="bar-label">Over 25 yrs</div><div class="bar-track"><div class="bar-fill" style="width:23%;background:#0F6E56;"></div></div><div class="bar-pct" style="color:#1D9E75;">23%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: Self-assessed AI knowledge + Subjects -->
+  <div class="inf-section">
+    <div class="inf-section-title">AI self-assessed knowledge</div>
+    <div class="inf-card">
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;text-align:center;">
+        <div>
+          <div style="font-family:'DM Serif Display',serif;font-size:24px;color:#D85A30;">1%</div>
+          <div style="font-size:11px;color:var(--color-text-secondary);line-height:1.3;">Absolute beginner</div>
+        </div>
+        <div>
+          <div style="font-family:'DM Serif Display',serif;font-size:24px;color:#E19F7B;">8%</div>
+          <div style="font-size:11px;color:var(--color-text-secondary);line-height:1.3;">Novice</div>
+        </div>
+        <div>
+          <div style="font-family:'DM Serif Display',serif;font-size:24px;color:#1D9E75;">63%</div>
+          <div style="font-size:11px;color:var(--color-text-secondary);line-height:1.3;">Intermediate</div>
+        </div>
+        <div>
+          <div style="font-family:'DM Serif Display',serif;font-size:24px;color:#0F6E56;">22%</div>
+          <div style="font-size:11px;color:var(--color-text-secondary);line-height:1.3;">Advanced</div>
+        </div>
+        <div>
+          <div style="font-family:'DM Serif Display',serif;font-size:24px;color:#085041;">4%</div>
+          <div style="font-size:11px;color:var(--color-text-secondary);line-height:1.3;">Expert</div>
+        </div>
+      </div>
+      <div style="margin-top:0.75rem;height:12px;border-radius:99px;overflow:hidden;display:flex;">
+        <div style="flex:1;background:#D85A30;"></div>
+        <div style="flex:6;background:#E19F7B;"></div>
+        <div style="flex:46;background:#1D9E75;"></div>
+        <div style="flex:16;background:#0F6E56;"></div>
+        <div style="flex:3;background:#085041;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 3: Frequency + Perception -->
+  <div class="inf-section">
+    <div class="inf-section-title">Usage frequency &amp; perception</div>
+    <div class="inf-grid2">
+      <div class="inf-card">
+        <div class="inf-card-title">How often do teachers use AI?</div>
+        <div class="bar-row"><div class="bar-label">Daily</div><div class="bar-track"><div class="bar-fill" style="width:18%;background:#1D9E75;"></div></div><div class="bar-pct" style="color:#1D9E75;">18%</div></div>
+        <div class="bar-row"><div class="bar-label">Few times/wk</div><div class="bar-track"><div class="bar-fill" style="width:45%;background:#5DCAA5;"></div></div><div class="bar-pct" style="color:#1D9E75;">45%</div></div>
+        <div class="bar-row"><div class="bar-label">Few times/mo</div><div class="bar-track"><div class="bar-fill" style="width:26%;background:#9FE1CB;"></div></div><div class="bar-pct" style="color:#1D9E75;">26%</div></div>
+        <div class="bar-row"><div class="bar-label">Rarely</div><div class="bar-track"><div class="bar-fill" style="width:8%;background:#D3D1C7;"></div></div><div class="bar-pct" style="color:var(--color-text-secondary);">8%</div></div>
+        <div class="bar-row"><div class="bar-label">Never</div><div class="bar-track"><div class="bar-fill" style="width:3%;background:#B4B2A9;"></div></div><div class="bar-pct" style="color:var(--color-text-secondary);">3%</div></div>
+        <div style="margin-top:0.75rem;padding-top:0.75rem;border-top:0.5px solid var(--color-border-tertiary);">
+          <span style="font-size:12px;color:var(--color-text-secondary);">For school tasks specifically:</span>
+          <div style="margin-top:6px;" class="pill-grid">
+            <span class="pill pill-teal">Daily: 14%</span>
+            <span class="pill pill-teal">Weekly: 44%</span>
+            <span class="pill pill-gray">Monthly: 30%</span>
+            <span class="pill pill-gray">Rarely/Never: 12%</span>
+          </div>
+        </div>
+      </div>
+      <div class="inf-card">
+        <div class="inf-card-title">How teachers see AI</div>
+        <div style="margin-bottom:10px;">
+          <div style="font-family:'DM Serif Display',serif;font-size:36px;color:#1D9E75;">59%</div>
+          <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.35;">see AI as a creative collaborator or co-brainstorming partner</div>
+        </div>
+        <div class="bar-row" style="margin-bottom:6px;"><div class="bar-label">Smart search</div><div class="bar-track"><div class="bar-fill" style="width:16%;background:#9FE1CB;"></div></div><div class="bar-pct" style="color:#1D9E75;">16%</div></div>
+        <div class="bar-row" style="margin-bottom:6px;"><div class="bar-label">Shortcut tool</div><div class="bar-track"><div class="bar-fill" style="width:16%;background:#D85A30;"></div></div><div class="bar-pct" style="color:#D85A30;">16%</div></div>
+        <div class="bar-row" style="margin-bottom:6px;"><div class="bar-label">Personal tutor</div><div class="bar-track"><div class="bar-fill" style="width:5%;background:#B5D4F4;"></div></div><div class="bar-pct" style="color:var(--color-text-secondary);">5%</div></div>
+        <div class="bar-row"><div class="bar-label">Entertainment</div><div class="bar-track"><div class="bar-fill" style="width:3%;background:#D3D1C7;"></div></div><div class="bar-pct" style="color:var(--color-text-secondary);">3%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 4: Feelings + Tech Adoption -->
+  <div class="inf-section">
+    <div class="inf-section-title">Emotional response to AI in education</div>
+    <div class="inf-grid2">
+      <div class="inf-card">
+        <div class="inf-card-title">Prevailing feelings about AI in schools</div>
+        <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:8px;">Most common emotion combinations across 73 teachers</div>
+        <div class="pill-grid">
+          <span class="pill pill-teal">Curiosity — very common</span>
+          <span class="pill pill-gray">Skepticism — common</span>
+          <span class="pill pill-coral">Anxiety — present</span>
+          <span class="pill pill-teal">Hope — present</span>
+          <span class="pill pill-coral">Suspicion — present</span>
+          <span class="pill pill-teal">Enthusiasm — present</span>
+        </div>
+        <div style="margin-top:0.75rem;padding:0.75rem;background:var(--color-background-secondary);border-radius:var(--border-radius-md);">
+          <div style="font-size:12px;color:var(--color-text-secondary);">Curiosity appears in <strong style="color:#1D9E75;">~60%</strong> of all responses, making it the single most dominant emotion — often paired with Skepticism or Hope.</div>
+        </div>
+      </div>
+      <div class="inf-card">
+        <div class="inf-card-title">Technology adoption profile</div>
+        <div class="bar-row"><div class="bar-label" style="max-width:110px;min-width:110px;">Wait for peers</div><div class="bar-track"><div class="bar-fill" style="width:53%;background:#1D9E75;"></div></div><div class="bar-pct" style="color:#1D9E75;">53%</div></div>
+        <div class="bar-row"><div class="bar-label" style="max-width:110px;min-width:110px;">Wait mainstream</div><div class="bar-track"><div class="bar-fill" style="width:22%;background:#9FE1CB;"></div></div><div class="bar-pct" style="color:#1D9E75;">22%</div></div>
+        <div class="bar-row"><div class="bar-label" style="max-width:110px;min-width:110px;">Early adopter</div><div class="bar-track"><div class="bar-fill" style="width:14%;background:#5DCAA5;"></div></div><div class="bar-pct" style="color:#1D9E75;">14%</div></div>
+        <div class="bar-row"><div class="bar-label" style="max-width:110px;min-width:110px;">Only if required</div><div class="bar-track"><div class="bar-fill" style="width:10%;background:#D3D1C7;"></div></div><div class="bar-pct" style="color:var(--color-text-secondary);">10%</div></div>
+        <div style="margin-top:0.75rem;font-size:12px;color:var(--color-text-secondary);">Most teachers are <strong style="color:#1D9E75;">cautious adopters</strong> — waiting for trusted peer recommendations before trying new tools.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 5: Pedagogy + School Guidelines -->
+  <div class="inf-section">
+    <div class="inf-section-title">Readiness &amp; institutional support</div>
+    <div class="inf-grid2">
+      <div class="inf-card">
+        <div class="inf-card-title">Feel equipped with AI teaching strategies?</div>
+        <div style="display:flex;align-items:flex-end;gap:10px;margin-bottom:8px;">
+          <div class="big-pct">67%</div>
+          <div class="big-pct-sub">agree or strongly agree they have the right pedagogical strategies</div>
+        </div>
+        <div style="height:14px;border-radius:99px;overflow:hidden;display:flex;margin-bottom:6px;">
+          <div style="flex:5;background:#085041;"></div>
+          <div style="flex:44;background:#1D9E75;"></div>
+          <div style="flex:21;background:#D3D1C7;"></div>
+          <div style="flex:3;background:#D85A30;"></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
+          <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:8px;height:8px;border-radius:50%;background:#085041;display:inline-block;"></span>Strongly agree 7%</span>
+          <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:8px;height:8px;border-radius:50%;background:#1D9E75;display:inline-block;"></span>Agree 60%</span>
+          <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:8px;height:8px;border-radius:50%;background:#D3D1C7;display:inline-block;"></span>Disagree 29%</span>
+          <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:8px;height:8px;border-radius:50%;background:#D85A30;display:inline-block;"></span>Strongly disagree 4%</span>
+        </div>
+      </div>
+      <div class="inf-card">
+        <div class="inf-card-title">Does school provide clear AI guidelines?</div>
+        <div style="display:flex;align-items:flex-end;gap:10px;margin-bottom:8px;">
+          <div style="font-family:'DM Serif Display',serif;font-size:40px;line-height:1;color:#D85A30;">51%</div>
+          <div class="big-pct-sub">disagree or strongly disagree their school provides clear AI guidance</div>
+        </div>
+        <div style="height:14px;border-radius:99px;overflow:hidden;display:flex;margin-bottom:6px;">
+          <div style="flex:4;background:#1D9E75;"></div>
+          <div style="flex:27;background:#9FE1CB;"></div>
+          <div style="flex:37;background:#F0997B;"></div>
+          <div style="flex:5;background:#D85A30;"></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
+          <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:8px;height:8px;border-radius:50%;background:#1D9E75;display:inline-block;"></span>Strongly agree 5%</span>
+          <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:8px;height:8px;border-radius:50%;background:#9FE1CB;display:inline-block;"></span>Agree 37%</span>
+          <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:8px;height:8px;border-radius:50%;background:#F0997B;display:inline-block;"></span>Disagree 51%</span>
+          <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:8px;height:8px;border-radius:50%;background:#D85A30;display:inline-block;"></span>Strongly disagree 7%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 6: Concerns heatmap -->
+  <div class="inf-section">
+    <div class="inf-section-title">Top concerns about AI in education</div>
+    <div class="inf-card">
+      <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:10px;">Proportion of "very concerned" + "extremely concerned" responses</div>
+      <div class="concern-row">
+        <div class="concern-label">Fake content &amp; deepfakes</div>
+        <div class="concern-stack">
+          <div style="flex:25;background:#1D9E75;"></div>
+          <div style="flex:34;background:#5DCAA5;"></div>
+          <div style="flex:27;background:#C0DD97;"></div>
+          <div style="flex:14;background:#D3D1C7;"></div>
+        </div>
+        <div class="concern-pct" style="color:#1D9E75;">60%</div>
+      </div>
+      <div class="concern-row">
+        <div class="concern-label">Student data privacy</div>
+        <div class="concern-stack">
+          <div style="flex:27;background:#1D9E75;"></div>
+          <div style="flex:30;background:#5DCAA5;"></div>
+          <div style="flex:26;background:#C0DD97;"></div>
+          <div style="flex:14;background:#9FE1CB;"></div>
+          <div style="flex:3;background:#D3D1C7;"></div>
+        </div>
+        <div class="concern-pct" style="color:#1D9E75;">58%</div>
+      </div>
+      <div class="concern-row">
+        <div class="concern-label">Critical thinking erosion</div>
+        <div class="concern-stack">
+          <div style="flex:23;background:#1D9E75;"></div>
+          <div style="flex:33;background:#5DCAA5;"></div>
+          <div style="flex:29;background:#C0DD97;"></div>
+          <div style="flex:12;background:#9FE1CB;"></div>
+          <div style="flex:3;background:#D3D1C7;"></div>
+        </div>
+        <div class="concern-pct" style="color:#1D9E75;">56%</div>
+      </div>
+      <div class="concern-row">
+        <div class="concern-label">Unequal access (paid tools)</div>
+        <div class="concern-stack">
+          <div style="flex:22;background:#1D9E75;"></div>
+          <div style="flex:26;background:#5DCAA5;"></div>
+          <div style="flex:27;background:#C0DD97;"></div>
+          <div style="flex:15;background:#9FE1CB;"></div>
+          <div style="flex:10;background:#D3D1C7;"></div>
+        </div>
+        <div class="concern-pct" style="color:#1D9E75;">48%</div>
+      </div>
+      <div class="concern-row">
+        <div class="concern-label">Social &amp; gender bias</div>
+        <div class="concern-stack">
+          <div style="flex:14;background:#1D9E75;"></div>
+          <div style="flex:25;background:#5DCAA5;"></div>
+          <div style="flex:34;background:#C0DD97;"></div>
+          <div style="flex:21;background:#9FE1CB;"></div>
+          <div style="flex:7;background:#D3D1C7;"></div>
+        </div>
+        <div class="concern-pct" style="color:#1D9E75;">38%</div>
+      </div>
+      <div class="concern-row">
+        <div class="concern-label">Assessing real learning</div>
+        <div class="concern-stack">
+          <div style="flex:5;background:#1D9E75;"></div>
+          <div style="flex:22;background:#5DCAA5;"></div>
+          <div style="flex:41;background:#C0DD97;"></div>
+          <div style="flex:25;background:#9FE1CB;"></div>
+          <div style="flex:7;background:#D3D1C7;"></div>
+        </div>
+        <div class="concern-pct" style="color:#1D9E75;">27%</div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;padding-top:8px;border-top:0.5px solid var(--color-border-tertiary);">
+        <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#1D9E75;display:inline-block;"></span>Extremely</span>
+        <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#5DCAA5;display:inline-block;"></span>Very</span>
+        <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#C0DD97;display:inline-block;"></span>Moderately</span>
+        <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#9FE1CB;display:inline-block;"></span>Slightly</span>
+        <span style="font-size:11px;display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#D3D1C7;display:inline-block;"></span>Not at all</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 7: AI Awareness -->
+  <div class="inf-section">
+    <div class="inf-section-title">Critical AI awareness</div>
+    <div class="inf-grid2">
+      <div class="inf-card">
+        <div class="inf-card-title">Noticed AI hallucinations (invented facts)?</div>
+        <div style="display:flex;align-items:flex-end;gap:10px;margin-bottom:8px;">
+          <div class="big-pct">80%</div>
+          <div class="big-pct-sub">have noticed AI hallucinations at least occasionally</div>
+        </div>
+        <div class="pill-grid">
+          <span class="pill pill-coral">Yes, frequently — 14%</span>
+          <span class="pill pill-amber">Yes, occasionally — 66%</span>
+          <span class="pill pill-gray">No, never — 10%</span>
+          <span class="pill pill-gray">Didn't know AI could — 11%</span>
+        </div>
+      </div>
+      <div class="inf-card">
+        <div class="inf-card-title">Noticed AI bias or stereotypes?</div>
+        <div style="display:flex;align-items:flex-end;gap:10px;margin-bottom:8px;">
+          <div style="font-family:'DM Serif Display',serif;font-size:40px;line-height:1;color:#185FA5;">58%</div>
+          <div class="big-pct-sub">have noticed cultural or gender bias in AI outputs</div>
+        </div>
+        <div class="pill-grid">
+          <span class="pill pill-coral">Yes, frequently — 19%</span>
+          <span class="pill pill-blue">Yes, occasionally — 38%</span>
+          <span class="pill pill-gray">No, never — 15%</span>
+          <span class="pill pill-gray">Never paid attention — 27%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 8: Expectations -->
+  <div class="inf-section">
+    <div class="inf-section-title">Expectations of AI in education</div>
+    <div class="inf-card">
+      <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:10px;">Percentage agreeing or strongly agreeing</div>
+      <div class="expectation-item">
+        <div class="exp-icon" style="background:rgba(29, 158, 117, 0.15);"><span style="font-size:13px;color:#5DCAA5;">⚡</span></div>
+        <div style="flex:1;">
+          <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.35;">AI will significantly speed up daily work tasks</div>
+          <div style="margin-top:4px;height:8px;border-radius:99px;overflow:hidden;background:var(--color-background-secondary);">
+            <div style="width:79%;height:100%;background:#1D9E75;border-radius:99px;"></div>
+          </div>
+        </div>
+        <div class="exp-agree">79%</div>
+      </div>
+      <div class="expectation-item">
+        <div class="exp-icon" style="background:rgba(24, 95, 165, 0.15);"><span style="font-size:13px;color:#8DB5E1;">✦</span></div>
+        <div style="flex:1;">
+          <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.35;">AI will make learning more accessible for diverse needs</div>
+          <div style="margin-top:4px;height:8px;border-radius:99px;overflow:hidden;background:var(--color-background-secondary);">
+            <div style="width:74%;height:100%;background:#378ADD;border-radius:99px;"></div>
+          </div>
+        </div>
+        <div class="exp-agree" style="color:#378ADD;">74%</div>
+      </div>
+      <div class="expectation-item">
+        <div class="exp-icon" style="background:rgba(99, 153, 34, 0.15);"><span style="font-size:13px;color:#A1D165;">◈</span></div>
+        <div style="flex:1;">
+          <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.35;">AI can tailor learning to individual pace and style</div>
+          <div style="margin-top:4px;height:8px;border-radius:99px;overflow:hidden;background:var(--color-background-secondary);">
+            <div style="width:67%;height:100%;background:#639922;border-radius:99px;"></div>
+          </div>
+        </div>
+        <div class="exp-agree" style="color:#639922;">67%</div>
+      </div>
+      <div class="expectation-item">
+        <div class="exp-icon" style="background:rgba(133, 79, 11, 0.15);"><span style="font-size:13px;color:#E5A952;">◉</span></div>
+        <div style="flex:1;">
+          <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.35;">AI will take over admin &amp; grading, freeing time for mentoring</div>
+          <div style="margin-top:4px;height:8px;border-radius:99px;overflow:hidden;background:var(--color-background-secondary);">
+            <div style="width:59%;height:100%;background:#BA7517;border-radius:99px;"></div>
+          </div>
+        </div>
+        <div class="exp-agree" style="color:#BA7517;">59%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer insight -->
+  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;border-left:3px solid #1D9E75;">
+    <div style="font-size:11px;font-weight:500;color:#1D9E75;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;">Key takeaway</div>
+    <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.5;">Teachers are actively using AI — mostly as curious, cautious adopters who see it as a creative collaborator. Yet a majority work without clear school guidelines, and their biggest fears center on fake content, student data privacy, and the erosion of critical thinking skills.</div>
+  </div>
+</div>
