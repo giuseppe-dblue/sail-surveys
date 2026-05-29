@@ -58,3 +58,21 @@ def describe_multiselect(series: pd.Series) -> str:
         pct = cnt / n * 100
         parts.append(f'"{opt}" selected by {pct:.1f}% of respondents.')
     return " ".join(parts)
+
+
+def describe_indicator_multiselect(df: pd.DataFrame, indicators: dict[str, str]) -> str:
+    """Summary text for a multiselect rendered from binary indicator columns."""
+    n = len(df)
+    totals = {
+        label: int(df[col].sum())
+        for label, col in indicators.items()
+        if col in df.columns
+    }
+    sorted_items = sorted(totals.items(), key=lambda x: x[1], reverse=True)
+    total_sel = sum(totals.values())
+    parts = [f"**N = {n}** respondents ({total_sel} total selections, multi-select)."]
+    for label, cnt in sorted_items[:3]:
+        if cnt > 0:
+            pct = cnt / n * 100
+            parts.append(f'"{label}" selected by {pct:.1f}%.')
+    return " ".join(parts)

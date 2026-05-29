@@ -33,6 +33,9 @@ def ordinal_colors(n: int) -> list[str]:
 FREQ_ORDER = ["Never", "Rarely", "A few times a month", "A few times a week", "Daily"]
 GRADE_ORDER = ["1st year", "2nd year", "3rd year", "4th year", "5th year"]
 
+AGE_ORDER = ["Under 30", "30-40", "41-50", "51-60", "Over 60"]
+EXPERIENCE_ORDER = ["0-5 years", "6-15 years", "16-25 years", "Over 25 years"]
+
 # ── Qualitative palettes ───────────────────────────────────────────────────────
 # Each palette occupies a distinct hue zone so Country, Gender, Grade, and the
 # Likert/Concern scales never share a color family.

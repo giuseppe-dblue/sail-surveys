@@ -44,3 +44,19 @@ def plot_bar(counts: pd.Series, colors=None, title: str = "") -> go.Figure:
 def plot_multiselect_bar(series: pd.Series, title: str = "") -> go.Figure:
     counts = series.dropna().str.split(", ").explode().value_counts()
     return plot_bar(counts, title=title)
+
+
+def plot_indicator_bar(
+    df: pd.DataFrame,
+    indicators: dict[str, str],
+    title: str = "",
+) -> go.Figure:
+    """Bar chart from pre-computed binary indicator columns (teacher multi-select)."""
+    values = {
+        label: int(df[col].sum())
+        for label, col in indicators.items()
+        if col in df.columns
+    }
+    counts = pd.Series(values).sort_values(ascending=False)
+    counts = counts[counts > 0]
+    return plot_bar(counts, title=title)

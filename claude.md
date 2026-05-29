@@ -8,25 +8,34 @@ This is a data analysis project. It analayzes surveys responses regarding AI usa
 ## History
 Data was spread in different files, each one of them with a different language.
 Data cleaning and preparation was performed with Claude Code. We prepared language maps that allowed to merge all the different files into a master english file.
+We analised the students reposnes in Students Responses - merged-en.csv and built a first version of the dashboard in streamlit to showcase the results.
 
 
 ## Current status
-We now target the Students Responses - merged-en.csv file for running the full analysis. We will divide it into 2 layers of analysis:
+We now target the Teachers Responses in file
+final-translated-responses 8-04-2026.csv
+ We still will divide it into 2 layers of analysis:
 * a homogeneous, horizontal descriptive analysis of the answers.
 * analysis of specific aspects/questions that might involve looking at correlations of pairs or set of questions
 I will need to provide charts and brief comments to my project partners, therefore we need to find a light library to produce the charts, and I will need to be able to quickly copy text of the comments/interpretations, so, no text embedded in the images for each image. If we need to enrich the stack, maybe to inlcude javascript first propose to me some options and brainstorm.
+Basically we follow the same kind of analysis we did for students but questions are slightly different
 
 
 ## Stack
 * Python 3.13.5 in Conda
 * always use conda venv named "sail"
+* streamlit
 
 
 ## Data peculiarities and organization
-* All data is in the data/students folder
-* Full dataset is: data/students/Students Responses - merged-en.csv
+* All data is in the data/students and data/teachers folder
+* Full dataset is: 
+    * data/students/Students Responses - merged-en.csv for students
+    * data/teachers final-translated-responses 8-04-2026.csv for teachers
 * Read in utf-8
-* Questionnaire Schema is in: students/students-responses-map/Students Responses Map - en.csv
+* Questionnaire Schema is in: 
+    * students/students-responses-map/Students Responses Map - en.csv for students
+    * teachers/map/en.csv for teachers
 
 
 * List of the columns that contain open text (like "other" option or equivalently in different language) Indexes start from 0
